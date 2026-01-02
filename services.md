@@ -13,7 +13,7 @@
 
 ## cloud
 
-- [ ] immich — Photos & videos (`cloud/immich`)
+- [x] immich — Photos & videos (`cloud/immich`)
 - [ ] nextcloud — Files, contacts, calendar (`cloud/nextcloud`)
 - [ ] syncthing — Peer-to-peer file sync (`cloud/syncthing`)
 - [ ] minio — S3-compatible storage (`cloud/minio`)
@@ -30,18 +30,18 @@
 - [x] portainer — Docker management (`infra/portainer`)
 - [x] traefik — Reverse proxy / routing (`infra/traefik`)
 - [x] watchtower — Auto-updates (`infra/watchtower`)
-- [ ] wireguard / tailscale — VPN solutions (`infra/wireguard` or `infra/tailscale`)
+- [x] tailscale — VPN solutions (`infra/tailscale`)
 - [ ] cloudflared tunnel — Secure access (`infra/cloudflared`)
 
 ## utilities
 
 - [ ] pi-hole — Ad blocking (`utilities/pi-hole`)
-- [ ] very — File conversions (`utilities/very`)
+- [ ] vert — File conversions (`utilities/very`)
 - [ ] apprise — Push notification aggregator (`utilities/apprise`)
 
 ## productivity
 
-- [ ] actual budget — Personal finance (`productivity/actual-budget`)
+- [x] actual budget — Personal finance (`productivity/actual-budget`)
 - [ ] vaultwarden — Password manager (`productivity/vaultwarden`)
 - [ ] anki sync — Flashcard sync (`productivity/anki-sync`)
 
