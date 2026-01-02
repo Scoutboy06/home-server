@@ -6,7 +6,8 @@ services:
     container_name: traefik
     restart: unless-stopped
     ports:
-      - "80:80" # Temporary: HTTP entrypoint
+      - "80:80" # for LAN / Tailscale access
+      - "443:443" # for HTTPS
     volumes:
       - ./config/traefik.yaml:/etc/traefik/traefik.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
