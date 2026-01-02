@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300  # optional: checks every 5 minutes
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
