@@ -2,7 +2,7 @@
 
 ## media
 
-- [ ] jellyfin — Media server (`media/jellyfin`)
+- [x] jellyfin — Media server (`media/jellyfin`)
 - [ ] sonarr — TV automation (`media/sonarr`)
 - [ ] radarr — Movie automation (`media/radarr`)
 - [ ] prowlarr — Indexer manager (`media/prowlarr`)
