@@ -19,10 +19,9 @@ services:
     networks:
       - proxy
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.actual_server.rule=Host(`actual.localhost`)"
-      - "traefik.http.routers.actual_server.entrypoints=web"
-      - "traefik.http.services.actual_server.loadbalancer.server.port=5006"
+      - tsdproxy.enable=true
+      - tsdproxy.name=actual
+      - tsdproxy.port=3000
 
 networks:
   proxy:

@@ -11,10 +11,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.localhost`)"
-      - "traefik.http.routers.portainer.entrypoints=web"
-      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+      - tsdproxy.enable=true
+      - tsdproxy.name=portainer
+      - tsdproxy.port=9000
     networks:
       - proxy
 

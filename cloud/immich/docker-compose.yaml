@@ -27,10 +27,9 @@ services:
     networks:
       - proxy
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.immich.rule=Host(`immich.localhost`)"
-      - "traefik.http.routers.immich.entrypoints=web"
-      - "traefik.http.services.immich.loadbalancer.server.port=2283"
+      - tsdproxy.enable=true
+      - tsdproxy.name=immich
+      - tsdproxy.port=2283
     restart: always
 
   immich-machine-learning:
