@@ -18,6 +18,8 @@ services:
     restart: unless-stopped
     networks:
       - proxy
+    ports:
+      - "3000:3000"
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=actual

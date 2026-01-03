@@ -24,6 +24,8 @@ services:
     depends_on:
       - redis
       - database
+    ports:
+      - "2283:2283"
     networks:
       - proxy
     labels:
