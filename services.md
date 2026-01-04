@@ -22,7 +22,7 @@
 ## automation
 
 - [x] n8n — Workflow automation (`automation/n8n`)
-- [ ] home assistant — Smart home automation (`automation/home-assistant`)
+- [x] home assistant — Smart home automation (`automation/home-assistant`)
 - [ ] sqlite / postgresql — Databases (`databases/postgres`)
 
 ## infra
