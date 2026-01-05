@@ -5,19 +5,23 @@ services:
     container_name: jellyfin
     # Optional - specify the uid and gid you would like Jellyfin to use instead of root
     # user: uid:gid
+    env_file:
+      - .env
     ports:
       - 8096:8096/tcp
       - 7359:7359/udp
     volumes:
       - jellyfin-config:/config
       - jellyfin-cache:/cache
-      # - type: bind
-      #   source: /path/to/media
-      #   target: /media
-      # - type: bind
-      #   source: /path/to/media2
-      #   target: /media2
-      #   read_only: true
+      - type: bind
+        source: ${SHOWS_DIR}
+        target: /shows
+      - type: bind
+        source: ${MOVIES_DIR}
+        target: /movies
+      - type: bind
+        source: ${MUSIC_DIR}
+        target: /music
       # Optional - extra fonts to be used during transcoding with subtitle burn-in
       # - type: bind
       #   source: /path/to/fonts
@@ -38,7 +42,6 @@ services:
 volumes:
   jellyfin-config:
   jellyfin-cache:
-
 
 networks:
   proxy:
