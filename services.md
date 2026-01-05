@@ -7,9 +7,11 @@
 - [ ] radarr — Movie automation (`media/radarr`)
 - [ ] prowlarr — Indexer manager (`media/prowlarr`)
 - [ ] tdarr — Transcoding automation (`media/tdarr`)
+- [ ] lidarr — Music automation (`media/lidarr`)
 - [ ] bazarr — Subtitles (`media/bazarr`)
 - [ ] kavita / komga — Comics, manga, books (`media/kavita` or `media/komga`)
 - [ ] overseerr / jellyseerr — Media requests (`media/overseerr` or `media/jellyseerr`)
+- [ ] qBittorrent / transmission — Torrent clients (`media/qbittorrent` or `media/transmission`)
 
 ## cloud
 
@@ -23,7 +25,6 @@
 
 - [x] n8n — Workflow automation (`automation/n8n`)
 - [x] home assistant — Smart home automation (`automation/home-assistant`)
-- [ ] sqlite / postgresql — Databases (`databases/postgres`)
 
 ## infra
 
