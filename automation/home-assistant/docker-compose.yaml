@@ -6,7 +6,7 @@ services:
     image: ghcr.io/home-assistant/home-assistant:stable
     restart: unless-stopped
     environment:
-      - TZ=${TIMEZONE}
+      - TZ=${TZ}
     env_file:
       - .env
     volumes:
