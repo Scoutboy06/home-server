@@ -1,0 +1,51 @@
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    labels:
+      - tsdproxy.enable=true
+      - tsdproxy.name=n8n
+      - tsdproxy.port=5678
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_HOST=${N8N_SUBDOMAIN}.${N8N_DOMAIN_NAME}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - N8N_RUNNERS_ENABLED=true
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${N8N_SUBDOMAIN}.${N8N_DOMAIN_NAME}/
+      - GENERIC_TIMEZONE=${TZ}
+      - TZ=${TZ}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n/local-files:/files
+    networks:
+      - proxy
+
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+    env_file:
+      - .env
+    volumes:
+      - ./home-assistant/ha-config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8123:8123"
+    privileged: true
+    networks:
+      - proxy
+    labels:
+      - tsdproxy.enable=true
+      - tsdproxy.name=homeassistant
+      - tsdproxy.port=8123
+
+volumes:
+  n8n_data:
+
+networks:
+  proxy:
+    external: true

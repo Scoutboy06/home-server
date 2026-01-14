@@ -2,9 +2,7 @@
 services:
   jellyfin:
     image: jellyfin/jellyfin
-    container_name: jellyfin
-    # Optional - specify the uid and gid you would like Jellyfin to use instead of root
-    # user: uid:gid
+    # container_name removed
     env_file:
       - .env
     ports:
@@ -14,30 +12,25 @@ services:
       - jellyfin-config:/config
       - jellyfin-cache:/cache
       - type: bind
-        source: ${SHOWS_DIR}
+        source: ${JELLYFIN_SHOWS_DIR}
         target: /shows
       - type: bind
-        source: ${MOVIES_DIR}
+        source: ${JELLYFIN_MOVIES_DIR}
         target: /movies
       - type: bind
-        source: ${MUSIC_DIR}
+        source: ${JELLYFIN_MUSIC_DIR}
         target: /music
-      # Optional - extra fonts to be used during transcoding with subtitle burn-in
-      # - type: bind
-      #   source: /path/to/fonts
-      #   target: /usr/local/share/fonts/custom
-      #   read_only: true
-    restart: 'unless-stopped'
-    # Optional - alternative address used for autodiscovery
+    restart: unless-stopped
     environment:
       - JELLYFIN_PublishedServerUrl=http://jellyfin.hydra-adelie.ts.net/
-    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=jellyfin
       - tsdproxy.port=8096
+    networks:
+      - proxy
 
 volumes:
   jellyfin-config:

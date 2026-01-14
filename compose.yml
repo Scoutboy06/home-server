@@ -1,0 +1,10 @@
+networks:
+  proxy:
+    external: true
+
+volumes:
+  tsdproxy-data:
+  jellyfin-config:
+  jellyfin-cache:
+  n8n_data:
+  model-cache:

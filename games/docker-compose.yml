@@ -1,4 +1,3 @@
-name: mc-filippa
 
 services:
   playit:
@@ -7,41 +6,28 @@ services:
     env_file:
       - .env
     environment:
-      - SECRET_KEY=${SECRET_KEY}
+      - SECRET_KEY=${MINECRAFT_SECRET_KEY}
 
   minecraft:
     image: itzg/minecraft-server:latest
-    container_name: minecraft
     ports:
       - "25565:25565"
     env_file:
       - .env
     environment:
       EULA: "TRUE"
-
-      # Server type
       TYPE: PAPER
       VERSION: "1.21.10"
-
-      # Memory
       MEMORY: 2G
-
-      # Gameplay
       DIFFICULTY: easy
       MODE: survival
       PVP: "true"
       ONLINE_MODE: "true"
-
-      # Quality of life
       VIEW_DISTANCE: 24
       SIMULATION_DISTANCE: 12
       ALLOW_FLIGHT: "false"
-
-      # Cosmetic
-      MOTD: ${MOTD}
-
-      # JVM optimizations (safe defaults)
+      MOTD: ${MINECRAFT_MOTD}
       USE_AIKAR_FLAGS: "true"
     volumes:
-      - ./minecraft-data:/data
+      - ./games/minecraft/world-data:/data
     restart: unless-stopped
