@@ -18,6 +18,7 @@ services:
       - .env
     environment:
       EULA: "TRUE"
+      ENABLE_RCON: true
 
       # Server type
       TYPE: PAPER
@@ -31,6 +32,7 @@ services:
       MODE: survival
       PVP: "true"
       ONLINE_MODE: "true"
+      SEED: ${SEED}
 
       # Quality of life
       VIEW_DISTANCE: 24
@@ -45,3 +47,4 @@ services:
     volumes:
       - ./minecraft-data:/data
     restart: unless-stopped
+
