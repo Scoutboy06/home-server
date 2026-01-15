@@ -1,0 +1,28 @@
+
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    restart: unless-stopped
+    volumes:
+      - ${MQTT_DATA}:/mosquitto/data
+      - ${MQTT_CONFIG}:/mosquitto/config
+      - ${MQTT_LOG}:/mosquitto/log
+    ports:
+      - "1883:1883"
+
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt
+    container_name: zigbee2mqtt
+    restart: unless-stopped
+    volumes:
+      - ${Z2M_DATA}:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - ${ZIGBEE_DEVICE}:/dev/ttyUSB0
+    environment:
+      - TZ=${TZ}
+    depends_on:
+      - mqtt
+    ports:
+      - "8080:8080"
