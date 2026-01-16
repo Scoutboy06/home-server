@@ -13,9 +13,3 @@ services:
       - tsdproxy.enable=true
       - tsdproxy.name=portainer
       - tsdproxy.port=9000
-    networks:
-      - proxy
-
-networks:
-  proxy:
-    external: true

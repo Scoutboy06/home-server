@@ -16,15 +16,9 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
-    networks:
-      - proxy
     ports:
       - "3000:3000"
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=actual
       - tsdproxy.port=3000
-
-networks:
-  proxy:
-    external: true

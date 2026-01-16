@@ -10,12 +10,7 @@ services:
     environment:
       - TS_AUTHKEY=${TS_AUTHKEY}
     restart: unless-stopped
-    networks:
-      - proxy
 
 volumes:
   tsdproxy-data:
 
-networks:
-  proxy:
-    external: true

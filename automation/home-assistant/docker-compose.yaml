@@ -1,4 +1,3 @@
-name: homeassistant
 
 services:
   homeassistant:
@@ -12,17 +11,12 @@ services:
     volumes:
       - ./ha-config:/config
       - /etc/localtime:/etc/localtime:ro
-    # network_mode: host # Uncomment on Linux systems to use host networking
-    ports:
-      - "8123:8123" # Comment out if using host networking
+    network_mode: host # Uncomment on Linux systems to use host networking
+    # ports:
+    #   - "8123:8123" # Comment out if using host networking
     privileged: true
-    networks:
-      - proxy
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=homeassistant
       - tsdproxy.port=8123
 
-networks:
-  proxy:
-    external: true
