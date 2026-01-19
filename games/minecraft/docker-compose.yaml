@@ -1,4 +1,4 @@
-name: mc-filippa
+# Reference: https://setupmc.com/java-server/
 
 services:
   playit:
@@ -14,18 +14,17 @@ services:
     container_name: minecraft
     ports:
       - "25565:25565"
+      - "24454:24454" # Required for Simple Voice Chat mod
     env_file:
       - .env
     environment:
       EULA: "TRUE"
+      TYPE: "FABRIC"
+      VERSION: "1.21.10"
       ENABLE_RCON: true
 
-      # Server type
-      TYPE: PAPER
-      VERSION: "1.21.10"
-
       # Memory
-      MEMORY: 2G
+      MEMORY: 4G
 
       # Gameplay
       DIFFICULTY: easy
@@ -38,12 +37,31 @@ services:
       VIEW_DISTANCE: 24
       SIMULATION_DISTANCE: 12
       ALLOW_FLIGHT: "false"
+      MAX_PLAYERS: 10
+      TZ: "Europe/Stockholm"
 
       # Cosmetic
       MOTD: ${MOTD}
 
       # JVM optimizations (safe defaults)
       USE_AIKAR_FLAGS: "true"
+
+      # Mods
+      MODRINTH_DOWNLOAD_DEPENDENCIES: "optional"
+      MODRINTH_ALLOWED_VERSION_TYPE: "alpha"
+      MODRINTH_PROJECTS: |-
+        simple-voice-chat
+        rei
+        tabtps
+        lithium
+        ferrite-core
+        krypton
+        c2me-fabric
+        scalablelux
+        alternate-current
+        chunky
+        distanthorizons
+
     volumes:
       - ./minecraft-data:/data
     restart: unless-stopped

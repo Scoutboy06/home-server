@@ -29,7 +29,7 @@ Recipe and item browser that lets players view crafting recipes, usages, and sea
 **Link:** [https://modrinth.com/mod/tabtps](https://modrinth.com/mod/tabtps)
 Displays server performance information such as TPS and MSPT directly in the player list and via commands. Useful for diagnosing lag.
 
-### Mod Viewer
+### Mod Viewer (⚠️Not available for 1.21.10)
 
 **Link:** [https://modrinth.com/mod/modviewer](https://modrinth.com/mod/modviewer)
 Allows administrators to inspect which mods are installed on the server and helps with troubleshooting version mismatches.
@@ -53,12 +53,12 @@ Reduces RAM usage by optimizing Minecraft’s internal data structures, especial
 **Link:** [https://modrinth.com/mod/krypton](https://modrinth.com/mod/krypton)
 Improves the Minecraft networking stack, reducing CPU usage and improving packet handling on multiplayer servers.
 
-### Memory Leak Fix
+### Memory Leak Fix  (⚠️Not available for 1.21.10)
 
 **Link:** [https://modrinth.com/mod/memoryleakfix](https://modrinth.com/mod/memoryleakfix)
 Fixes several vanilla memory leaks to improve long‑term stability on servers that run for many hours or days.
 
-### LazyDFU
+### LazyDFU  (⚠️Not available for 1.21.10)
 
 **Link:** [https://modrinth.com/mod/lazydfu](https://modrinth.com/mod/lazydfu)
 Speeds up server startup time by deferring DataFixerUpper initialization until it is actually needed.
@@ -84,7 +84,7 @@ Improves server scalability for higher player counts by optimizing entity tracki
 **Link:** [https://modrinth.com/mod/alternate-current](https://modrinth.com/mod/alternate-current)
 More efficient redstone dust calculations that remain extremely close to vanilla behavior while reducing lag.
 
-### Noisium
+### Noisium (⚠️Not available for 1.21.10)
 
 **Link:** [https://modrinth.com/mod/noisium](https://modrinth.com/mod/noisium)
 Optimizes world generation noise calculations to speed up chunk creation.
@@ -110,4 +110,3 @@ Client mod with optional server component that generates Level‑of‑Detail (LO
 * Only Simple Voice Chat and REI require installation on both server and client.
 * All performance mods are server‑side and do not require players to install anything.
 * This setup aims to stay as close to vanilla mechanics as possible while providing better performance and quality of life.
-
