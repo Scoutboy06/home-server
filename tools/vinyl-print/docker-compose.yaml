@@ -8,9 +8,15 @@ services:
         - default
     container_name: vinyl-print
     restart: unless-stopped
-    ports:
-      - "3000:80"
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=vinyl-print
-      - tsdproxy.port=3000
+      - tsdproxy.port=80
+    networks:
+      - default
+      - tsdproxy
+
+networks:
+  tsdproxy:
+    external: true
+    name: tsdproxy_default

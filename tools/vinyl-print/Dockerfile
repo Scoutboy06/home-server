@@ -14,4 +14,7 @@ COPY --from=builder /app/index.html /usr/share/nginx/html/
 COPY --from=builder /app/styles.css /usr/share/nginx/html/
 COPY --from=builder /app/script.js /usr/share/nginx/html/
 
+# Update nginx server_name from localhost to wildcard
+RUN sed -i 's/server_name  localhost;/server_name _;/' /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
