@@ -4,11 +4,13 @@ services:
     image: almeidapaulopt/tsdproxy:latest
     container_name: tsdproxy
     hostname: tsdproxy
+    env_file: .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - tsdproxy-data:/data
     environment:
       - TS_AUTHKEY=${TS_AUTHKEY}
+      - TSNET_FORCE_LOGIN=1
     restart: unless-stopped
 
 volumes:
