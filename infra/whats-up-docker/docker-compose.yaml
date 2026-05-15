@@ -1,0 +1,21 @@
+services:
+  whatsupdocker:
+    image: getwud/wud
+    container_name: wud
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - tsdproxy.enable=true
+      - tsdproxy.name=wud
+      - tsdproxy.port=3000
+    env_file: .env
+    networks:
+      - default
+      - tsdproxy
+
+networks:
+  tsdproxy:
+    external: true
+    name: tsdproxy_default
+
