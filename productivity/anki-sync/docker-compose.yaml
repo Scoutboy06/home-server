@@ -1,0 +1,29 @@
+services:
+  anki-sync-server:
+    build:
+      context: .
+      args:
+        ANKI_VERSION: "25.02.5"
+    container_name: anki_sync_server
+    environment:
+      - SYNC_USER1=${SYNC_USER1}
+      # Add more users as needed:
+      # - SYNC_USER2=${SYNC_USER2}
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ}
+    volumes:
+      - ./anki-data:/anki_data
+    ports:
+      - "4001:8080"
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    labels:
+      - tsdproxy.enable=true
+      - tsdproxy.name=anki
+      - tsdproxy.port=8080
