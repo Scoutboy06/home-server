@@ -17,8 +17,8 @@ services:
       start_period: 20s
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "5006:5006"
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=actual
-      - tsdproxy.port=3000
+      - tsdproxy.port=5006
