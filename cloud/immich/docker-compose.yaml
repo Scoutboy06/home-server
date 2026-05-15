@@ -19,15 +19,15 @@ services:
     env_file:
       - .env
     volumes:
-      - ${UPLOAD_LOCATION}:/data
+      - /mnt/Seagate2TB/photos/immich:/data
       - /etc/localtime:/etc/localtime:ro
     depends_on:
       - redis
       - database
     ports:
       - "2283:2283"
-    networks:
-      - proxy
+#    networks:
+#      - proxy
     labels:
       - tsdproxy.enable=true
       - tsdproxy.name=immich
@@ -40,15 +40,15 @@ services:
     volumes:
       - model-cache:/cache
     restart: always
-    networks:
-      - proxy
+#    networks:
+#      - proxy
 
   redis:
     container_name: immich_redis
     image: docker.io/valkey/valkey:9@sha256:fb8d272e529ea567b9bf1302245796f21a2672b8368ca3fcb938ac334e613c8f
     restart: always
-    networks:
-      - proxy
+#    networks:
+#      - proxy
 
   database:
     container_name: immich_postgres
@@ -60,12 +60,12 @@ services:
     volumes:
       - ${DB_DATA_LOCATION}:/var/lib/postgresql/data
     restart: always
-    networks:
-      - proxy
+#    networks:
+#      - proxy
 
 volumes:
   model-cache:
 
-networks:
-  proxy:
-    external: true
+#networks:
+#  proxy:
+#    external: true
