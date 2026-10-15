@@ -1,0 +1,6 @@
+.env
+data/
+backups/
+scotty-src/
+scotty-projects/
+scotty-config/
